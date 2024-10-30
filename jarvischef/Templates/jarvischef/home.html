@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarvis Master Chef</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <h1>Ask Your Recipe - AI Master Chef</h1>
+  <form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
+    {{form.rescipe_message}} <!-- Assuming this is a text input or textarea -->
+    <button type="submit">Ask</button>
+  </form>
+  <pre>{{ai_recipe}}</pre>
+</body>
+</html>
